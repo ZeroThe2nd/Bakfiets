@@ -21,6 +21,20 @@ class LocksController extends BaseController
 
     public function get($id = 0, Request $request)
     {
+        $error = false;
+        $data  = [
+            'id'      => 1,
+            'locked'  => true,
+            'ownerId' => 0,
+        ];
+
+        if ($error) {
+            return response()
+                ->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return response()
+            ->json($data);
     }
 
     public function post(Request $request)
@@ -32,11 +46,17 @@ class LocksController extends BaseController
     {
         $id   = (int)$id;
         $data = $request->input();
-
     }
 
     public function delete($id = 0)
     {
+    }
+
+    public function list()
+    {
+        return view('auth.login', $data = [
+            'title' => 'Page title',
+        ]);
     }
 
 }

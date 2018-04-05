@@ -25,19 +25,13 @@ $router->group(['prefix' => 'lock', 'middleware' => 'auth', 'namespace' => 'Lock
     ]);
 
     // Add lock
-    $router->post('add', function() {
-        // Add lock
-    });
+    $router->post('add', 'LocksController@post');
 
     // Update lock
-    $router->put('{id}', function($id) {
-        return "lock " . $id;
-    });
+    $router->put('{id}', 'LocksController@put');
 
     // Delete lock
-    $router->delete('{id}', function($id) {
-        // Delete lock
-    });
+    $router->delete('{id}', 'LocksController@delete');
 });
 
 // Using The "App\Http\Controllers\Users" namespace
